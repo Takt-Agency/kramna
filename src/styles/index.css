@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand palette — deep plum, ivory, gold, natural tones */
+  --color-plum: #4b174a;
+  --color-plum-dark: #32102f;
+  --color-plum-soft: #6b2a68;
+  --color-ivory: #f3e9d7;
+  --color-beige: #e7d8c1;
+  --color-gold: #b58a43;
+  --color-gold-soft: #d9b676;
+  --color-brown: #76543d;
+  --color-green: #58634a;
+
+  /* Type scale */
+  --lh-tight: 1.02;
+  --lh-body: 1.6;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ivory);
+    color: var(--color-plum-dark);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: var(--lh-body);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: var(--lh-tight);
+    color: var(--color-plum);
+  }
+
+  ::selection {
+    background: var(--color-plum);
+    color: var(--color-ivory);
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 500;
+  }
+
+  .display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-plum);
+  }
+
+  .display-italic {
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .rule-gold {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--color-gold) 20%,
+      var(--color-gold) 80%,
+      transparent
+    );
+    height: 1px;
+    width: 100%;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm tracking-[0.18em] uppercase transition-all duration-500 ease-out;
+    background: var(--color-plum);
+    color: var(--color-ivory);
+    box-shadow: 0 10px 30px -12px rgba(75, 23, 74, 0.55);
+  }
+  .btn-primary:hover {
+    background: var(--color-plum-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 18px 38px -12px rgba(75, 23, 74, 0.65);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 text-sm tracking-[0.18em] uppercase transition-colors duration-300;
+    color: var(--color-plum);
+    border-bottom: 1px solid var(--color-gold);
+  }
+  .btn-ghost:hover {
+    color: var(--color-gold);
+  }
+
+  .card-paper {
+    background: linear-gradient(180deg, #faf1de 0%, var(--color-ivory) 100%);
+    border: 1px solid rgba(181, 138, 67, 0.18);
+  }
+}
+
+/* Paper grain texture — pure CSS, very subtle */
+.paper-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(118, 84, 61, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(75, 23, 74, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 1px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-ivory); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-plum);
+  border-radius: 4px;
+}
