@@ -4,6 +4,7 @@ import Story from './components/sections/Story'
 import Djebba from './components/sections/Djebba'
 import Product from './components/sections/Product'
 import SavoirFaire from './components/sections/SavoirFaire'
+import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Djebba />
         <Product />
         <SavoirFaire />
+        <Contact />
       </main>
       <Footer />
     </div>

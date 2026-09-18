@@ -76,20 +76,25 @@ export default function LegalDialog({ kind, onClose }: Props) {
         <div className="px-8 md:px-12 py-6 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 200px)' }}>
           {content.blocks.map((b, i) => (
             <div key={i} className="mb-8">
-              <h3 className="font-serif font-bold text-plum text-lg md:text-xl mb-2">
+              <h3 className="font-serif font-bold text-plum text-lg md:text-xl mb-3">
                 {b.heading}
               </h3>
               {b.paragraphs.map((p, j) => (
-                <p key={j} className="text-plum-dark/80 text-[0.95rem] leading-[1.8] mb-3">
+                <p
+                  key={j}
+                  className="text-[1rem] leading-[1.75] mb-3 font-normal"
+                  style={{ color: 'var(--color-plum-dark)' }}
+                >
                   {p}
                 </p>
               ))}
               {b.list && (
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-3 space-y-2.5">
                   {b.list.map((item, k) => (
                     <li
                       key={k}
-                      className="flex items-start gap-3 text-plum-dark/80 text-[0.95rem] leading-relaxed"
+                      className="flex items-start gap-3 text-[1rem] leading-relaxed font-normal"
+                      style={{ color: 'var(--color-plum-dark)' }}
                     >
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
                       <span>{item}</span>
@@ -100,7 +105,10 @@ export default function LegalDialog({ kind, onClose }: Props) {
             </div>
           ))}
 
-          <p className="text-plum/45 text-xs italic mt-10 pb-4">
+          <p
+            className="text-xs italic mt-10 pb-4"
+            style={{ color: 'rgba(75, 23, 74, 0.55)' }}
+          >
             Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
           </p>
         </div>

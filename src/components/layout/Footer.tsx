@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Instagram, Facebook, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import logoWhite from '../../assets/logo white.png'
 import LegalDialog from '../ui/LegalDialog'
 
@@ -25,7 +25,6 @@ export default function Footer() {
   const [legal, setLegal] = useState<Legal>(null)
   return (
     <footer
-      id="contact"
       className="relative text-ivory pt-16 md:pt-20 pb-8 overflow-hidden"
       style={{
         background:
@@ -61,32 +60,6 @@ export default function Footer() {
             respect d’un terroir singulier.
           </p>
 
-          {/* Socials */}
-          <div className="mt-6 flex items-center gap-3">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="grid place-items-center h-10 w-10 rounded-full border border-ivory/25 text-ivory/80 hover:bg-ivory/10 hover:text-gold-soft transition-colors"
-            >
-              <Instagram size={16} />
-            </a>
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="grid place-items-center h-10 w-10 rounded-full border border-ivory/25 text-ivory/80 hover:bg-ivory/10 hover:text-gold-soft transition-colors"
-            >
-              <Facebook size={16} />
-            </a>
-            <a
-              href="https://wa.me/21655331023"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="grid place-items-center h-10 w-10 rounded-full border border-ivory/25 text-ivory/80 hover:bg-ivory/10 hover:text-gold-soft transition-colors"
-            >
-              <WhatsAppIcon />
-            </a>
-          </div>
         </div>
 
         {/* Navigation */}
@@ -146,18 +119,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="container-x mt-14 pt-6 border-t border-ivory/15 flex flex-col md:flex-row items-center justify-between gap-4 text-[0.72rem] text-ivory/50">
-        <div>© {new Date().getFullYear()} Kramna. Tous droits réservés.</div>
-        <div className="flex items-center gap-6 text-xs">
+      <div className="container-x mt-14 pt-6 border-t border-ivory/15 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="text-[0.8rem] text-ivory/75">
+          © {new Date().getFullYear()} Kramna. Tous droits réservés.
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <button
             onClick={() => setLegal('mentions')}
-            className="italic hover:text-gold-soft transition-colors"
+            className="text-[0.85rem] text-ivory/90 font-serif underline underline-offset-4 decoration-gold-soft/50 hover:text-gold-soft hover:decoration-gold-soft transition-colors"
           >
             Mentions légales
           </button>
           <button
             onClick={() => setLegal('confidentialite')}
-            className="italic hover:text-gold-soft transition-colors"
+            className="text-[0.85rem] text-ivory/90 font-serif underline underline-offset-4 decoration-gold-soft/50 hover:text-gold-soft hover:decoration-gold-soft transition-colors"
           >
             Politique de confidentialité
           </button>

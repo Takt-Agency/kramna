@@ -1,5 +1,5 @@
 import { useReveal } from '../../three/hooks/useReveal'
-import cover from '../../assets/cover.png'
+import bgImage from '../../assets/femme-figues.jpg'
 
 export default function Djebba() {
   const ref = useReveal<HTMLElement>()
@@ -14,7 +14,7 @@ export default function Djebba() {
         aria-hidden
         className="absolute inset-0 -z-20"
         style={{
-          backgroundImage: `url(${cover})`,
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
